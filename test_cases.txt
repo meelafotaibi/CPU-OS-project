@@ -1,0 +1,108 @@
+=================================================================
+OS PROJECT - TEST CASES FOR VISUALIZATIONS
+Student: MEELAF BADER OTAIBI (44203353)
+=================================================================
+
+TEST CASE 1: Basic Example (4 Processes)
+-----------------------------------------------------------------
+Number of Processes: 4
+Arrival Times: 0, 1, 2, 3
+Burst Times: 5, 3, 8, 6
+Priorities: 2, 1, 3, 4 (lower = higher priority)
+Time Quantum (RR): 2
+
+Expected Results:
+- FCFS: Sequential execution in arrival order
+- SJF: P2 (BT=3) should execute before longer processes
+- Priority NP: P2 (PR=1) has highest priority
+- Priority P: P2 should preempt others when it arrives
+- Round Robin: Each process gets 2 time units per turn
+
+-----------------------------------------------------------------
+
+TEST CASE 2: All Arrive at Same Time (3 Processes)
+-----------------------------------------------------------------
+Number of Processes: 3
+Arrival Times: 0, 0, 0
+Burst Times: 8, 4, 2
+Priorities: 3, 2, 1
+Time Quantum (RR): 3
+
+Expected Results:
+- FCFS: P1 → P2 → P3
+- SJF: P3 (BT=2) → P2 (BT=4) → P1 (BT=8)
+- Priority NP: P3 (PR=1) → P2 (PR=2) → P1 (PR=3)
+- Priority P: Same as Priority NP (no arrivals during execution)
+- Round Robin: Interleaved execution with quantum=3
+
+-----------------------------------------------------------------
+
+TEST CASE 3: Realistic Scenario (5 Processes)
+-----------------------------------------------------------------
+Number of Processes: 5
+Arrival Times: 0, 1, 2, 3, 4
+Burst Times: 7, 5, 3, 1, 8
+Priorities: 3, 2, 4, 1, 5
+Time Quantum (RR): 2
+
+Expected Results:
+- Demonstrates preemption differences between algorithms
+- Shows impact of arrival time on scheduling decisions
+- Round Robin will have multiple context switches
+
+-----------------------------------------------------------------
+
+HOW TO USE FOR REPORT:
+=================================================================
+1. Open visualizer.html in your browser
+2. Enter each test case data
+3. Click "Generate All Visualizations"
+4. Take screenshots of:
+   - Performance Comparison Table
+   - Average Waiting Time Comparison Chart
+   - Average Turnaround Time Comparison Chart
+   - Individual Gantt Charts for each algorithm
+5. Insert screenshots into your Word/PDF report
+
+RECOMMENDED SCREENSHOTS FOR REPORT:
+- Test Case 1: Full dashboard (shows all algorithms working)
+- Test Case 2: Comparison charts (shows algorithm differences)
+- Individual Gantt charts for each algorithm (1-2 examples each)
+
+=================================================================
+OBSERVATIONS TO INCLUDE IN REPORT:
+=================================================================
+
+1. FCFS (First-Come, First-Served):
+   - Simple but can have high waiting time
+   - No starvation
+   - Convoy effect visible when long process arrives first
+
+2. SJF (Shortest Job First):
+   - Minimizes average waiting time
+   - Can cause starvation of longer processes
+   - Optimal for non-preemptive scheduling
+
+3. Priority Scheduling (Non-Preemptive):
+   - Respects priority but no preemption
+   - Can cause starvation of low-priority processes
+   - Good for systems with clear priority levels
+
+4. Priority Scheduling (Preemptive):
+   - High-priority processes can interrupt lower priority
+   - More responsive to important tasks
+   - More context switches than non-preemptive
+
+5. Round Robin:
+   - Fair time-sharing among all processes
+   - Time quantum affects performance
+   - Good for interactive systems
+   - More context switches with smaller quantum
+
+COMPARISON INSIGHTS:
+- SJF typically has lowest average waiting time
+- Round Robin provides fairest distribution
+- Preemptive algorithms more responsive but higher overhead
+- FCFS simplest but least optimal for performance
+
+=================================================================
