@@ -1,4 +1,4 @@
-// STUDENT: MEELAF BADER OTAIBI - ID: 44203353
+// STUDENT: MEELO
 #include <iostream>
 #include <vector>
 using namespace std;
